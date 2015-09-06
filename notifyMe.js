@@ -1,6 +1,8 @@
 /**
- * NotifyMe.js v1.0.0
+ * NotifyMe.js v1.0.1
  * Text notifications on screen corners
+ * Project: https://github.com/Ayberk84/NotifyMe.js
+ * Demo: http://www.ayberkakici.com/notifyMe.js
  */
 
 /* The MIT License (MIT)
@@ -27,17 +29,13 @@ SOFTWARE.*/
 
 ;(function (root, factory) {
   if(typeof define === "function" && define.amd) {
-    // Now we're wrapping the factory and assigning the return
-    // value to the root (window) and returning it as well to
     // the AMD loader.
     define(factory);
   } else if(typeof module === "object" && module.exports) {
-    // I've not encountered a need for this yet, since I haven't
-    // run into a scenario where plain modules depend on CommonJS
-    // *and* I happen to be loading in a CJS browser environment
-    // but I'm including it for the sake of being thorough
+    //Common.js
     module.exports = factory();
   } else {
+    //Global
     root.notifyMe = factory();
   }
 }(this, function() {
@@ -242,7 +240,6 @@ SOFTWARE.*/
             timerId = window.setTimeout(function(){
                 $container.removeChild($notification);
             }, remaining);
-
             $notification.setAttribute('data-timer', timerId);
             $notification.setAttribute('data-remaining', start);
         }
@@ -251,21 +248,24 @@ SOFTWARE.*/
             window.clearTimeout(timerId);
             remaining -= new Date().getTime() - $notification.getAttribute('data-remaining');
         }
-            
-        if ($timeout && $timeout > 0) {
+        
+        if($timeout && $timeout > 0) {
             startOrResume();
-        }
-        if($timeout && $timeout > 0 && $pauseOnHover) {
-            $notification.onmouseout = startOrResume;
-            $notification.onmouseover = pause;
-        }
-        if ($timeout === 0) {
+            if($pauseOnHover) {
+                $notification.onmouseleave = startOrResume;
+                $notification.onmouseenter = pause;
+            }
+        }    
+        else if ($timeout === 0) {
             pause();
+            $notification.onmouseleave = null;
             $container.removeChild($notification);
+        }
+        else {
+            return false;
         }
         
     }
-
 
     //Add onclick event handler
     /*
@@ -294,8 +294,8 @@ SOFTWARE.*/
         },
         //Removes a specific notification element which is specified as function parameter
         remove: function($notification) {
-            var timer = $notification.getAttribute('data-timer');
-            window.clearTimeout(timer);
+        
+            window.clearTimeout($notification.getAttribute('data-timer'));
             $notification.parentElement.removeChild($notification);
         },
         //Removes all generated notifications by create() method

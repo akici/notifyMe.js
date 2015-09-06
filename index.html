@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="http://www.ayberkakici.com/assets/favicon.png" type="image/png" />
-    <title>NotifyMe.js - Ayberk Akıcı - Front-End Web Developer from İstanbul</title>
+    <title>NotifyMe.js - Text notifications on screen corners - by Ayberk Akıcı</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,500,600' rel='stylesheet' type='text/css' />
     <style type="text/css">
       /*General Styles*/
@@ -197,7 +197,7 @@
       }
 
     </style>
-    <link rel="stylesheet" href="notifyMe.css" />
+    <link rel="stylesheet" href="notifyMe.min.css" />
     <script src="notifyMe.min.js"></script>
     <script>
         window.onload = function(){
@@ -230,6 +230,7 @@
     </script>
 </head>
 <body>
+    <a href="https://github.com/Ayberk84/notifyMe.js" target="_blank"><img style="position: fixed; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
     <div class="container">
         <h1 class="title">NotifyMe.js by Ayberk AKICI</h1>
         <h4 class="subtitle">Text notifications on screen corners</h4>
@@ -244,7 +245,7 @@
               title: <span class="hljs-string">'NotifyMe Example with 5000ms timeout'</span>, <span class="hljs-comment">//required field</span>
               text: <span class="hljs-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin'</span>, <span class="hljs-comment">// required field</span>
               timeout: <span class="hljs-number">5000</span>, <span class="hljs-comment">// Remove notification after timeout expire, optional field without default value</span>
-              pauseOnHover: true,
+              pauseOnHover: <span class="hljs-number">true</span>, <span class="hljs-comment">//Pause the timeout when mouse is over the notification, true or false, optional field with default value: false</span>
               closeBtn: <span class="hljs-number">true</span>, <span class="hljs-comment">//Shows a close button, true or false, optional field with default value: true</span>
               addClass: <span class="hljs-number">'additional-class'</span>, <span class="hljs-comment">// Add 'additional-class' into existing class names, optional field without default value</span>
               click: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">//Click event handler function, optional field without default value</span>
