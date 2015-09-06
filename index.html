@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/png" />
+    <title>NotifyMe - Ayberk Akıcı - Front-End Web Developer from İstanbul</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,500,600' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+      /*General Styles*/
+      body {
+        font: 100%/1.4 'Open Sans', Helvetica, Arial, sans-serif;
+        background-color: #2f2f2f;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+      }
+
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      .title {
+          text-align: center;
+          display: block;
+          margin-bottom: 0px;
+          color: #fff;
+      }
+
+      .subtitle {
+          color: #d1d1d1;
+          text-align: center;
+          display: block;
+          font-size: 14px;
+          font-weight: 300;
+          margin-top: 0;
+          letter-spacing: 5.97px;
+          position: relative;
+          left: 3px;
+      }
+
+      /*Code Highlighting*/
+      .example {
+        margin-bottom: 0;
+      }
+
+      .run-code {
+        display: none;
+        top: 37px;
+        left: 0;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      pre {
+        position: relative;
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      pre:hover .run-code {
+        display: block;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        padding: 0 0.5em;
+        background: #222;
+        -webkit-text-size-adjust: none;
+      }
+
+      .profile .hljs-header *,
+      .ini .hljs-title,
+      .nginx .hljs-title {
+        color: #fff;
+      }
+
+      .hljs-comment,
+      .hljs-preprocessor,
+      .hljs-preprocessor .hljs-title,
+      .hljs-pragma,
+      .hljs-shebang,
+      .profile .hljs-summary,
+      .diff,
+      .hljs-pi,
+      .hljs-doctype,
+      .hljs-tag,
+      .css .hljs-rule,
+      .tex .hljs-special {
+        color: #444;
+      }
+
+      .hljs-string,
+      .hljs-symbol,
+      .diff .hljs-change,
+      .hljs-regexp,
+      .xml .hljs-attribute,
+      .smalltalk .hljs-char,
+      .xml .hljs-value,
+      .ini .hljs-value,
+      .clojure .hljs-attribute,
+      .coffeescript .hljs-attribute {
+        color: #ffcc33;
+      }
+
+      .hljs-number,
+      .hljs-addition {
+        color: #00cc66;
+      }
+
+      .hljs-built_in,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-typename,
+      .go .hljs-constant,
+      .ini .hljs-keyword,
+      .lua .hljs-title,
+      .perl .hljs-variable,
+      .php .hljs-variable,
+      .mel .hljs-variable,
+      .django .hljs-variable,
+      .css .funtion,
+      .smalltalk .method,
+      .hljs-hexcolor,
+      .hljs-important,
+      .hljs-flow,
+      .hljs-inheritance,
+      .hljs-name,
+      .parser3 .hljs-variable {
+        color: #32aaee;
+      }
+
+      .hljs-keyword,
+      .hljs-tag .hljs-title,
+      .css .hljs-tag,
+      .css .hljs-class,
+      .css .hljs-id,
+      .css .hljs-pseudo,
+      .css .hljs-attr_selector,
+      .hljs-winutils,
+      .tex .hljs-command,
+      .hljs-request,
+      .hljs-status {
+        color: #6644aa;
+      }
+
+      .hljs-title,
+      .ruby .hljs-constant,
+      .vala .hljs-constant,
+      .hljs-parent,
+      .hljs-deletion,
+      .hljs-template_tag,
+      .css .hljs-keyword,
+      .objectivec .hljs-class .hljs-id,
+      .smalltalk .hljs-class,
+      .lisp .hljs-keyword,
+      .apache .hljs-tag,
+      .nginx .hljs-variable,
+      .hljs-envvar,
+      .bash .hljs-variable,
+      .go .hljs-built_in,
+      .vbscript .hljs-built_in,
+      .lua .hljs-built_in,
+      .rsl .hljs-built_in,
+      .tail,
+      .avrasm .hljs-label,
+      .tex .hljs-formula,
+      .tex .hljs-formula * {
+        color: #bb1166;
+      }
+
+      .hljs-doctag,
+      .profile .hljs-header,
+      .ini .hljs-title,
+      .apache .hljs-tag,
+      .parser3 .hljs-title {
+        font-weight: bold;
+      }
+
+      .coffeescript .javascript,
+      .javascript .xml,
+      .tex .hljs-formula,
+      .xml .javascript,
+      .xml .vbscript,
+      .xml .css,
+      .xml .hljs-cdata {
+        opacity: 0.6;
+      }
+
+      .hljs,
+      .hljs-subst,
+      .diff .hljs-chunk,
+      .css .hljs-value,
+      .css .hljs-attribute {
+        color: #aaa;
+      }
+
+    </style>
+    <link rel="stylesheet" href="notifyMe.css" />
+    <script src="notifyMe.js"></script>
+    <script>
+        window.onload = function(){
+            notifyMe.create({
+                position: 'topLeft', //Positions are: ['topRight', 'topLeft', 'bottomLeft', 'bottomRight'],optional field with default value: 'topRight'
+                type: 'info', // Types are: ['info', 'warning', 'success', 'error'], optional field with default value: 'info'
+                title: 'NotifyMe Example with 5000ms timeout', //required field
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin', //required field
+                timeout: 5000, //Remove notification after timeout expire, optional field without default value
+                pauseOnHover: true,
+                closeBtn: true, //Shows a close button, true or false, optional field with default value: true
+                addClass: 'additional-class', // Add 'additional-class' into existing class names, optional field without default value
+                click: function(){ //Click event handler function, optional field without default value
+                    alert('clicked');
+                }
+            });
+
+            var runCode = function(){
+              var btns = document.getElementsByClassName('run-code');
+              for (var i=0; i<btns.length; i++) {
+                btns[i].onclick = function() {
+                  var code = this.nextElementSibling.textContent.trim();
+                  var newFunction = new Function(code);
+                  newFunction();
+                }
+              }
+            }();
+
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">NotifyMe.js by Ayberk AKICI</h1>
+        <h4 class="subtitle">Text notifications on screen corners</h4>
+
+        <h5 class="example">Example #1 (Built-in Example)</h5>
+        <pre>
+          <button class="run-code">Run Code</button>
+          <code class="javascript hljs">
+            notifyMe.create({
+              position: <span class="hljs-string">'topLeft'</span>,<span class="hljs-comment">//Positions are: ['topRight', 'topLeft', 'bottomLeft', 'bottomRight'],optional field with default value: 'topRight'</span>
+              type: <span class="hljs-string">'info'</span>, <span class="hljs-comment">// Types are: ['info', 'warning', 'success', 'error'], optional field with default value: 'info'</span>
+              title: <span class="hljs-string">'NotifyMe Example with 5000ms timeout'</span>, <span class="hljs-comment">//required field</span>
+              text: <span class="hljs-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin'</span>, <span class="hljs-comment">// required field</span>
+              timeout: <span class="hljs-number">5000</span>, <span class="hljs-comment">// Remove notification after timeout expire, optional field without default value</span>
+              pauseOnHover: true,
+              closeBtn: <span class="hljs-number">true</span>, <span class="hljs-comment">//Shows a close button, true or false, optional field with default value: true</span>
+              addClass: <span class="hljs-number">'additional-class'</span>, <span class="hljs-comment">// Add 'additional-class' into existing class names, optional field without default value</span>
+              click: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">//Click event handler function, optional field without default value</span>
+                alert('clicked');
+               } 
+            });
+          </code>
+        </pre>
+
+        <h5 class="example">Example #2</h5>
+        <pre>
+          <button class="run-code">Run Code</button>
+          <code class="javascript hljs">
+              notifyMe.create({
+                type: <span class="hljs-string">'success'</span>, <span class="hljs-comment">// Types are: ['info', 'warning', 'success', 'error'], optional field with default value: 'info'</span>
+                title: <span class="hljs-string">'NotifyMe Success Example'</span>, <span class="hljs-comment">//required field</span>
+                text: <span class="hljs-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin'</span><span class="hljs-comment">// required field</span>
+              });
+          </code>
+      </pre>
+
+        <h5 class="example">Example #3</h5>
+        <pre>
+          <button class="run-code">Run Code</button>
+          <code class="javascript hljs">
+            notifyMe.create({
+              position: <span class="hljs-string">'bottomLeft'</span>,<span class="hljs-comment">//Positions are: ['topRight', 'topLeft', 'bottomLeft', 'bottomRight'],optional field with default value: 'topRight'</span>
+              type: <span class="hljs-string">'error'</span>, <span class="hljs-comment">// Types are: ['info', 'warning', 'success', 'error'], optional field with default value: 'info'</span>
+              title: <span class="hljs-string">'NotifyMe Error Example'</span>, <span class="hljs-comment">//required field</span>
+              text: <span class="hljs-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin'</span><span class="hljs-comment">// required field</span>
+            });
+          </code>
+        </pre>
+
+        <h5 class="example">Example #4</h5>
+        <pre>
+          <button class="run-code">Run Code</button>
+          <code class="javascript hljs">
+            notifyMe.create({
+              position: <span class="hljs-string">'bottomRight'</span>,<span class="hljs-comment">//Positions are: ['topRight', 'topLeft', 'bottomLeft', 'bottomRight'],optional field with default value: 'topRight'</span>
+              type: <span class="hljs-string">'warning'</span>, <span class="hljs-comment">// Types are: ['info', 'warning', 'success', 'error'], optional field with default value: 'info'</span>
+              title: <span class="hljs-string">'NotifyMe Warning Example with 10000ms timeout'</span>, <span class="hljs-comment">//required field</span>
+              text: <span class="hljs-string">'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat enim non sapien venenatis sollicitudin'</span>, <span class="hljs-comment">// required field</span>
+              timeout: <span class="hljs-number">10000</span>, <span class="hljs-comment">// Remove notification after timeout expire, optional field without default value</span>
+              closeBtn: <span class="hljs-number">false</span> <span class="hljs-comment">//Shows a close button, true or false, optional field with default value: true</span>
+            });
+          </code>
+        </pre>
+
+    </div>
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47948218-1', 'ayberkakici.com');
+  ga('send', 'pageview');
+</script>
+</html>
