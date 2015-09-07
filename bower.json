@@ -1,6 +1,9 @@
 {
-  "name": "notifyMe.js",
-  "main": "notifyMe.js",
+  "name": "notifyme.js",
+  "main": [
+    "notifyme.js",
+    "notifyme.css"
+  ],
   "version": "1.0.1",
   "authors": [
     "Ayberk Akıcı <ayberkakici@gmail.com>"
@@ -14,6 +17,7 @@
   "keywords": [
     "notifyMe.js",
     "notifyMeJS",
+    "notify",
     "notification",
     "library"
   ],
