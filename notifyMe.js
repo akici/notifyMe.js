@@ -1,7 +1,7 @@
 /**
  * NotifyMe.js v1.0.1
  * Text notifications on screen corners
- * Project: https://github.com/akici/NotifyMe.js
+ * Project: https://github.com/akici/notifyMe.js
  * Demo: http://www.ayberkakici.com/notifyMe.js
  */
 

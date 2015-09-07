@@ -1,0 +1,33 @@
+{
+  "name": "notifyMe.js",
+  "main": "notifyMe.js",
+  "version": "1.0.1",
+  "authors": [
+    "Ayberk Akıcı <ayberkakici@gmail.com>"
+  ],
+  "description": "Pure JavaScript Mini Library to Create Text Notifications on Screen Corners",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "notifyMe.js",
+    "notifyMeJS",
+    "notification",
+    "library"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/akici/notifyMe.js",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/akici/notifyMe.js.git"
+},
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
